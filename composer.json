@@ -1,12 +1,22 @@
 {
-    "name": "alsal/enumeration",
-    "description": "Abstract PHP Enumeration Class",
-    "require": {
-        "php": "^7.2"
-    },
+	"name" : "alsal/enumeration",
+	"description" : "Abstract PHP Enumeration Class",
+	"require" : {
+		"php" : "^7.2"
+	},
 	"autoload" : {
 		"psr-4" : {
 			"alsal\\enumeration\\" : "src"
+		},
+		"psr-0" : {
+			"alsal\\enumeration\\" : "src"
 		}
-	}
+	},
+	"authors" : [{
+			"name" : "Alan Salgado",
+			"email" : "alan@blueplategroup.com",
+			"role" : "Author"
+		}
+	],
+	"minimum-stability" : "stable"
 }

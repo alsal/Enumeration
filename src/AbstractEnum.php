@@ -1,16 +1,30 @@
 <?php
 namespace alsal\enumeration;
 
+use ReflectionClass;
+use Exception;
+
+/**
+ * General Enumeration Utility class.
+ * 
+ * @author Alan Salgado
+ *
+ */
 abstract class AbstractEnum {
 	
     /**
-     *
-     * @var integer
+     * @var string
      */
     private $option;
     
+    /**
+     * @var integer
+     */
     private $value;
     
+    /**
+     * @var array
+     */
     private $options = array();
     
     /**
@@ -22,7 +36,6 @@ abstract class AbstractEnum {
     /**
      * Constructor
      * @param string/int $option_or_value
-     * If input is string
      */
     function __construct($option_or_value) {
     	
@@ -103,7 +116,7 @@ abstract class AbstractEnum {
      * @return string
      */
     public function __toString(){
-        return ucfirst(strtolower($this->option));
+        return strtolower($this->option);
     }
    
 }
