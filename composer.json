@@ -1,0 +1,7 @@
+{
+    "name": "alsal/enumeration",
+    "description": "Abstract PHP Enumeration Class",
+    "require": {
+        "php": "^7.2",
+    }
+}
