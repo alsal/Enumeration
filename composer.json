@@ -5,8 +5,8 @@
         "php": "^7.2"
     },
 	"autoload" : {
-		"psr-0" : {
-			"alsal\\enumeration" : "src/"
+		"psr-4" : {
+			"alsal\\enumeration" : "src"
 		}
 	}
 }
