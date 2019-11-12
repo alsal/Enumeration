@@ -1,6 +1,14 @@
 {
 	"name" : "alsal/enumeration",
+	"type" : "library",
 	"description" : "Abstract PHP Enumeration Class",
+	"keywords" : [
+		"enum",
+		"enumeration",
+		"value list"
+	],
+	"homepage" : "https://github.com/alsal/Enumeration",
+	"license" : "MIT",
 	"require" : {
 		"php" : "^7.2"
 	},
@@ -15,8 +23,11 @@
 	"authors" : [{
 			"name" : "Alan Salgado",
 			"email" : "alan@blueplategroup.com",
-			"role" : "Author"
+			"role" : "Developer"
 		}
 	],
-	"minimum-stability" : "stable"
+	"minimum-stability" : "stable",
+	"support" : {
+		"email" : "alan@blueplategroup.com"
+	}
 }

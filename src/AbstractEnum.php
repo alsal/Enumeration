@@ -13,19 +13,19 @@ use Exception;
 abstract class AbstractEnum {
 	
     /**
-     * @var string
+     * @var mixed
      */
-    private $option;
+    private $constantName;
     
     /**
-     * @var integer
+     * @var mixed
      */
-    private $value;
+    private $constantValue;
     
     /**
      * @var array
      */
-    private $options = array();
+    private $constants = array();
     
     /**
      *
@@ -41,26 +41,26 @@ abstract class AbstractEnum {
     	
       	$this->ref = new ReflectionClass($this);
       	
-        $this->options = $this->ref->getConstants();
+        $this->constants = $this->ref->getConstants();
         
-        if (count($this->options) < 1) {
+        if (count($this->constants) < 1) {
         	throw new Exception('No values in '. $this->ref->getName());
         }
       	
         $i = $option_or_value;
         if(is_numeric($i)){       
-            $option = array_search($i, $this->options);
-            if(isset($this->options[$option])) {
-                $this->option = $option;
-                $this->value = $this->options[$option];
+            $option = array_search($i, $this->constants);
+            if(isset($this->constants[$option])) {
+                $this->constantName = $option;
+                $this->constantValue = $this->constants[$option];
             } else {
                 throw new Exception('Invalid '.$this->ref->getName());
             }
         } else {//if(is_string($i)){
         	$i = strtoupper($i);
-            if(isset($this->options[$i])){
-                $this->option = $i;
-                $this->value = $this->options[$i];
+            if(isset($this->constants[$i])){
+                $this->constantName = $i;
+                $this->constantValue = $this->constants[$i];
             } else {
                 throw new Exception('Invalid '.$this->ref->getName());
             }
@@ -79,7 +79,7 @@ abstract class AbstractEnum {
     }
     
     public function getValue(){
-        return $this->value;
+        return $this->constantValue;
     }
     
     /**
@@ -90,9 +90,9 @@ abstract class AbstractEnum {
      */
     public function compareTo($Enum){
         if(is_int($Enum))
-            return ($this->value === $Enum);
+            return ($this->constantValue === $Enum);
         elseif($Enum instanceof self)
-            return ($this->value === $Enum->getValue());
+            return ($this->constantValue === $Enum->getValue());
         else
             throw new Exception('Invalid input!');
     }
@@ -103,11 +103,11 @@ abstract class AbstractEnum {
      * @return array
      */
     public function getOptions(){
-    	return $this->options;
+    	return $this->ref->getConstants();
     }
     
     public function getOption(){
-    	return $this->option;
+    	return $this->constantName;
     }
     
     /**
@@ -116,7 +116,7 @@ abstract class AbstractEnum {
      * @return string
      */
     public function __toString(){
-        return strtolower($this->option);
+        return strtolower($this->constantName);
     }
    
 }
