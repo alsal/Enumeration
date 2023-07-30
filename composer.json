@@ -10,7 +10,8 @@
 	"homepage" : "https://github.com/alsal/Enumeration",
 	"license" : "MIT",
 	"require" : {
-		"php" : "^7.2"
+		"php" : "^7.2",
+		"php" : "8.*"
 	},
 	"autoload" : {
 		"psr-4" : {
